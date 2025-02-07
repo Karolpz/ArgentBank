@@ -1,0 +1,35 @@
+@use '../../assets/style/variables' as v;
+
+.hero {
+    position: relative;
+
+    & .hero__img {
+        height: 400px;
+        width: 100%;
+        object-fit: cover;
+        object-position: 0 33%;
+    }
+
+    & .hero__content {
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        margin: 2rem;
+        background: v.$terciary-color;
+        padding: 2rem;
+        text-align: left;
+        width:350px;
+
+        & .hero__content--title {
+            font-size: v.$size24;
+            color: v.$primary-color;
+            font-weight: bold;
+        }
+
+        & .hero__content--subtitle {
+            margin-bottom: 0;
+            margin-top:2rem;
+            font-size: v.$size20;
+        }
+    }
+}

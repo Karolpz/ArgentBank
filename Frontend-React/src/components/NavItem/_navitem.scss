@@ -1,0 +1,11 @@
+@use '../../assets/style/variables' as v;
+
+.navItem {
+    display: flex;
+    gap: 4px;
+
+    & .navItem__text {
+        font-weight: bold;
+        color: v.$primary-color;
+    }
+}
