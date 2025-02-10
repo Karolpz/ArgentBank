@@ -1,0 +1,25 @@
+@use '../../assets/style/variables' as v;
+
+.form {
+    position: relative;
+    background-color:v.$background-signin ;
+    color: v.$primary-color;
+    text-align: center;
+    height: 84vh;
+
+    & .form__modal {
+        position: absolute;
+        background-color: v.$terciary-color;
+        width: 300px;
+        margin: 0 auto;
+        padding: 2rem;
+        top : 14rem;
+        transform: translate(-50%, -50%);
+        right: 50%;
+        left: 50%;
+
+        & h1 {
+            margin: 1.25rem 0;
+        }
+    }
+}

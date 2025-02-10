@@ -6,6 +6,7 @@
     align-items: center;
     flex: 1;
     padding: 2.5rem;
+    text-align: center;
 
     & .feature-item__icon {
         width: 152px;
@@ -20,7 +21,6 @@
     }
 
     & .feature-item__text {
-        text-align: center;
         color: v.$primary-color;
     }
 }

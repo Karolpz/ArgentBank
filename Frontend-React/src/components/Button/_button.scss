@@ -1,0 +1,11 @@
+@use '../../assets/style/variables' as v;
+
+.button-submit {
+    padding: 8px;
+    font-size: v.$size-button;
+    font-weight: bold;
+    background-color: v.$secondary-color;
+    text-decoration: underline;
+    color: v.$terciary-color;
+    border: none;
+}

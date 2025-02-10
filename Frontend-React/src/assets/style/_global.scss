@@ -43,7 +43,6 @@ a {
 }
 
 button,
-input,
 select,
 textarea {
     font: inherit;
@@ -57,10 +56,6 @@ input,
 textarea,
 select {
     color: inherit;
-}
-
-:focus {
-    outline: 2px solid blue;
 }
 
 img,
