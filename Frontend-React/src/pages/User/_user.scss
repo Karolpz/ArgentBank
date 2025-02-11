@@ -1,0 +1,22 @@
+@use '../../assets/style/variables' as v;
+
+.user__content {
+    background-color: v.$background-color;
+    text-align: center;
+    height: 84.5vh;
+
+    & .user__content--header {
+        margin-bottom: 2rem;
+
+        & h1 {
+            background-color: v.$background-color;
+            color: #fff;
+            margin: v.$size20 0;
+        }
+
+        & button {
+            font-size: v.$size-smallbutton;
+            padding: 10px;
+        }
+    }
+}

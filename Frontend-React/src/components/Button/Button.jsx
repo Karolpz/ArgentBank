@@ -11,7 +11,7 @@ const Button = ({ type, onClick, title, text }) => {
             return (
                 <button
                     type='button'
-                    className='button-default'
+                    className='button button-default'
                     onClick={onClick}
                     title={title}>
                     {text}
@@ -22,7 +22,7 @@ const Button = ({ type, onClick, title, text }) => {
                 <input
                     type='submit'
                     value={text}
-                    className='button-submit'
+                    className='button button-submit'
                     onClick={onClick}
                     title={title}
                 />

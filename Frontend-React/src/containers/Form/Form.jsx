@@ -1,6 +1,7 @@
 import React from 'react'
 import Field, { FIELD_TYPES } from '../../components/Field/Field'
 import Button, { BUTTON_TYPES } from '../../components/Button/Button'
+import { NavLink } from 'react-router-dom'
 
 const Form = () => {
     return (
@@ -22,10 +23,12 @@ const Form = () => {
                 label='remember-me'
                 textlabel='Remember me'
             />
-            <Button
-                type={BUTTON_TYPES.SUBMIT}
-                text='Sign In'
-            />
+            <NavLink to='/user'>
+                <Button
+                    type={BUTTON_TYPES.SUBMIT}
+                    text='Sign In'
+                />
+            </NavLink>
         </form>
     )
 }

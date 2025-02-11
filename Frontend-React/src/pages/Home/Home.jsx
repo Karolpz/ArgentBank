@@ -1,6 +1,5 @@
 import React from 'react'
 
-import Menu from '../../containers/Menu/Menu'
 import Hero from '../../containers/Hero/Hero'
 import Icon from '../../components/Icon/Icon'
 
@@ -10,9 +9,7 @@ import SecurityIcon from '../../assets/img/icon-security.png'
 
 const Home = () => {
   return (
-    <>
-      <Menu />
-      <main>
+      <main className='home__content'>
         <Hero />
         <section className='feature'>
           <Icon
@@ -32,7 +29,6 @@ const Home = () => {
           />
         </section>
       </main>
-    </>
   )
 }
 

@@ -1,11 +1,21 @@
 @use '../../assets/style/variables' as v;
 
-.button-submit {
+.button {
     padding: 8px;
     font-size: v.$size-button;
     font-weight: bold;
     background-color: v.$secondary-color;
-    text-decoration: underline;
+    border-color: v.$secondary-color;
     color: v.$terciary-color;
+    cursor: pointer;
+}
+
+.button-submit {
+    width: 100%;
     border: none;
+    text-decoration: underline;
+}
+
+.button-default {
+    font-size: v.$size-button; 
 }
