@@ -1,9 +1,12 @@
 .home__content {
-    flex: 1;
-}
-
-.feature {
-    display: flex;
-    flex-basis: 33%;
     background-color: #fff;
+
+    & .feature {
+        display: flex;
+        flex-basis: 33%;
+
+        @media (max-width: 920px) {
+            flex-direction: column;
+        }
+    }
 }

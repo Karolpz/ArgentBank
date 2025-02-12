@@ -12,13 +12,23 @@
     text-align: left;
     margin-bottom: 2rem;
 
+    @media (max-width: 720px) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
     & button {
         width: 200px;
         margin-top: 1rem;
+
+        @media (max-width: 720px) {
+            width: 100%;
+        }
     }
     
     & .transaction__content {
         color: v.$primary-color;
+        
 
         & .transaction__content--amount {
             font-weight: bold;
