@@ -7,20 +7,20 @@ export const FIELD_TYPES = {
     CHECKBOX: 3
 }
 
-const Field = ({ label, textlabel, type, id }) => {
+const Field = ({ label, textlabel, type, id, value, onChange, name }) => {
     switch (type) {
         case FIELD_TYPES.TEXT:
             return (
                 <div className="input-wrapper">
                     <label htmlFor={label}>{textlabel}</label>
-                    <input type='text' id={id} />
+                    <input type='text' id={id} value={value} onChange={onChange} name={name} />
                 </div>
             );
         case FIELD_TYPES.PASSWORD:
             return (
                 <div className="input-wrapper">
                     <label htmlFor={label}>{textlabel}</label>
-                    <input type='password' id={id} />
+                    <input type='password' id={id} value={value} onChange={onChange} name={name} />
                 </div>
             );
         case FIELD_TYPES.CHECKBOX:
@@ -38,6 +38,7 @@ export default Field
 Field.propTypes = {
     label: PropTypes.string.isRequired,
     textlabel: PropTypes.string.isRequired,
-    type: PropTypes.string.oneOf(Object.values(FIELD_TYPES)),
-    id: PropTypes.string.isRequired
+    type: PropTypes.oneOf(Object.values(FIELD_TYPES)),
+    id: PropTypes.string.isRequired,
+    value : PropTypes.string
 }

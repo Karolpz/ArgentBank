@@ -11,6 +11,9 @@ export const loginUser = createAsyncThunk(
     async (userData, { rejectWithValue }) => {
         try {
             const token = await loginUserAPI(userData);
+            if (!token) {
+                return rejectWithValue("Identifiants incorrects")
+            }   
             return token;
         } catch (error) {
             return rejectWithValue(error.message)
@@ -21,7 +24,13 @@ export const loginUser = createAsyncThunk(
 const userSlice = createSlice({
     name: 'login',
     initialState,
-    reducers: {},
+    reducers: {
+        logout: (state) => {
+            state.token = null;
+            state.status ='idle';
+            state.error = null;
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(loginUser.pending, (state) => {
@@ -33,9 +42,10 @@ const userSlice = createSlice({
             })
             .addCase(loginUser.rejected, (state, action) => {
                 state.status = 'failed';
-                state.error = action.payload;
+                state.error = action.payload;  
             });
     }
 })
 
+export const { logout } = userSlice.actions
 export default userSlice.reducer

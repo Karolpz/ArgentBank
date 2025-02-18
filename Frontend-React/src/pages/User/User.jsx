@@ -29,8 +29,6 @@ const User = () => {
           description='Current Balance'
         />
       </div>
-
-
     </main>
   )
 }
