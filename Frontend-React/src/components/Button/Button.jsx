@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from "prop-types"
 
 export const BUTTON_TYPES = {
     DEFAULT: 1,
@@ -31,3 +32,10 @@ const Button = ({ type, onClick, title, text }) => {
 }
 
 export default Button
+
+Button.propTypes = {
+    type: PropTypes.oneOf(Object.values(BUTTON_TYPES)),
+    onClick: PropTypes.string,
+    title: PropTypes.string,
+    text: PropTypes.string.isRequired
+}

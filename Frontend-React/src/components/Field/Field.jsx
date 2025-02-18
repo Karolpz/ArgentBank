@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from "prop-types";
 
 export const FIELD_TYPES = {
     TEXT: 1,
@@ -33,3 +34,10 @@ const Field = ({ label, textlabel, type, id }) => {
 
 }
 export default Field
+
+Field.propTypes = {
+    label: PropTypes.string.isRequired,
+    textlabel: PropTypes.string.isRequired,
+    type: PropTypes.string.oneOf(Object.values(FIELD_TYPES)),
+    id: PropTypes.string.isRequired
+}

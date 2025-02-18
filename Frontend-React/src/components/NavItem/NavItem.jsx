@@ -1,7 +1,8 @@
 import React from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PropTypes from 'prop-types';
 
-export const NavItem = ({icon, text}) => {
+const NavItem = ({icon, text}) => {
     return (
         <div className='navItem'>
             <div className="navItem__icon">
@@ -12,4 +13,11 @@ export const NavItem = ({icon, text}) => {
             </p>
         </div>
     )
+}
+
+export default NavItem
+
+NavItem.propTypes = {
+    icon: PropTypes.string,
+    text: PropTypes.string
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import Button, { BUTTON_TYPES } from '../Button/Button'
+import PropTypes from "prop-types";
 
 const Card = ({ title, amount, description }) => {
   return (
@@ -18,3 +19,9 @@ const Card = ({ title, amount, description }) => {
 }
 
 export default Card
+
+Card.propTypes = {
+  title: PropTypes.string.isRequired,
+  amount: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired
+}
