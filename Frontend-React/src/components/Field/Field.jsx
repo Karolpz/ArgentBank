@@ -7,7 +7,7 @@ export const FIELD_TYPES = {
     CHECKBOX: 3
 }
 
-const Field = ({ label, textlabel, type, id, value, onChange, name }) => {
+const Field = ({ label, textlabel, type, id, value, onChange, name, checked }) => {
     switch (type) {
         case FIELD_TYPES.TEXT:
             return (
@@ -27,7 +27,7 @@ const Field = ({ label, textlabel, type, id, value, onChange, name }) => {
             return (
                 <div className="input-remember">
                     <label htmlFor={label}>{textlabel}</label>
-                    <input type='checkbox' id={id} />
+                    <input type='checkbox' id={id} checked={checked} onChange={onChange} />
                 </div>
             );
     }
@@ -40,5 +40,5 @@ Field.propTypes = {
     textlabel: PropTypes.string.isRequired,
     type: PropTypes.oneOf(Object.values(FIELD_TYPES)),
     id: PropTypes.string.isRequired,
-    value : PropTypes.string
+    value: PropTypes.string
 }

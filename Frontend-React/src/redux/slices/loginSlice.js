@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { loginUserAPI } from "../api";
 
 const initialState = {
-    token: null,
+    token: localStorage.getItem('token') || null,
     status: 'idle'
 }
 
@@ -13,7 +13,7 @@ export const loginUser = createAsyncThunk(
             const token = await loginUserAPI(userData);
             if (!token) {
                 return rejectWithValue("Identifiants incorrects")
-            }   
+            }  
             return token;
         } catch (error) {
             return rejectWithValue(error.message)
@@ -27,8 +27,10 @@ const userSlice = createSlice({
     reducers: {
         logout: (state) => {
             state.token = null;
-            state.status ='idle';
+            state.status = 'idle';
             state.error = null;
+            localStorage.removeItem('token')
+            sessionStorage.removeItem('token')
         }
     },
     extraReducers: (builder) => {
@@ -39,10 +41,11 @@ const userSlice = createSlice({
             .addCase(loginUser.fulfilled, (state, action) => {
                 state.status = 'succeeded';
                 state.token = action.payload;
+                sessionStorage.setItem('token', action.payload)
             })
             .addCase(loginUser.rejected, (state, action) => {
                 state.status = 'failed';
-                state.error = action.payload;  
+                state.error = action.payload;
             });
     }
 })

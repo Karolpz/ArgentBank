@@ -8,6 +8,25 @@ export const loginUserAPI = async (userData) => {
             userData,
         );
         return response.data.body.token;
-    } catch (error) { console.log('erreur lors de la connexion', error); }
+    } catch (error) { console.log('erreur lors de la connexion', error);
+        throw error;
+     }
+    ;
+}
+
+//ID USER//
+export const getUserAPI = async (token) => {
+    try {
+        const response = await axios.get(
+            'http://localhost:3001/api/v1/user/profile',
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+        return response.data.body;
+    } catch (error) { console.log('erreur lors de la connexion', error);
+        throw error;
+     }
     ;
 }

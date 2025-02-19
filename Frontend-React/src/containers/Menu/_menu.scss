@@ -17,12 +17,5 @@
         color: v.$primary-color;
        margin-right: 0.5rem;
 
-       & .logout__button {
-        cursor: pointer;
-        
-        &:hover {
-            text-decoration: underline;
-        }
-       }
     }
 }

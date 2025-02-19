@@ -3,6 +3,11 @@
 .navItem {
     display: flex;
     gap: 4px;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
 
     & .navItem__text {
         font-weight: bold;

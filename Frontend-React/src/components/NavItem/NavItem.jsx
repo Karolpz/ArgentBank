@@ -2,9 +2,9 @@ import React from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PropTypes from 'prop-types';
 
-const NavItem = ({icon, text}) => {
+const NavItem = ({icon, text, onClick}) => {
     return (
-        <div className='navItem'>
+        <div className='navItem' onClick={onClick}>
             <div className="navItem__icon">
                 <FontAwesomeIcon icon = {icon} />
             </div>

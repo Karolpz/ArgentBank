@@ -1,23 +1,32 @@
 import React from 'react'
-import { NavLink, useLocation, useNavigate } from 'react-router-dom'
+import {NavLink, useNavigate } from 'react-router-dom'
 import logo from '../../assets/img/argentBankLogo.png'
 import NavItem from '../../components/NavItem/NavItem'
-import { faCircleUser } from '@fortawesome/free-solid-svg-icons'
-import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
-import { useDispatch } from 'react-redux'
+import { faCircleUser, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../../redux/slices/loginSlice'
 
 const Menu = () => {
 
-  const location = useLocation();
-  const isUserRoute = location.pathname === '/user';
+  const { token } = useSelector(state => state.login)
+  const { status, idUser } = useSelector(state => state.getUser)
   const navigate = useNavigate()
-
   const dispatch = useDispatch()
+
+  console.log(idUser);
+  console.log(status);
+  
 
   const handleLogout = () => {
     dispatch(logout())
     navigate('/')
+  }
+
+  const handleLogin = () => {
+    navigate('/signin')
+  }
+  const handleUser = () => {
+    navigate('/user')
   }
 
   return (
@@ -26,26 +35,26 @@ const Menu = () => {
         <img src={logo} alt='Logo du site ArgentBank' className='menu__logo' />
       </NavLink>
       <nav className='menu__nav'>
-        {!isUserRoute ?
-          (<NavLink to='signin'>
-            <NavItem
-              icon={faCircleUser}
-              text="Sign In"
-            />
-          </NavLink>) :
-          <>
+        {token ?
+          (
+            <>
             <NavItem
               icon={faCircleUser}
               text='Tony' //changez en fonction du username
+              onClick={handleUser}
             />
-            <div onClick={handleLogout} className='logout__button'>
               <NavItem
                 icon={faRightFromBracket}
                 text='Sign Out'
+                onClick={handleLogout}
               />
-            </div>
           </>
-
+          ) :
+          <NavItem
+            icon={faCircleUser}
+            text={"Sign in"}
+            onClick={handleLogin}
+          />
         }
       </nav>
     </header>
