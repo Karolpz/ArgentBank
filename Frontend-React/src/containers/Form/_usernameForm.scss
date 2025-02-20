@@ -1,0 +1,33 @@
+@use '../../assets/style/variables' as v;
+
+.usernameForm__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    & .input-wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+
+        & label {
+            color: white;
+        }
+
+        & input {
+            color: v.$primary-color;
+        }
+    }
+
+    & .usernameForm__content--buttons {
+        display: flex;
+        gap: 20px;
+
+        & .button {
+           font-size: v.$size-smallbutton;
+           width: 100px;
+           margin-top: 1rem;
+        }
+    }
+}

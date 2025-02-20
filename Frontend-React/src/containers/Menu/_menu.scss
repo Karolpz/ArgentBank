@@ -1,11 +1,15 @@
 @use '../../assets/style/variables' as v;
 
 .menu {
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 5px 20px;
     background-color: #fff;
+
+    @media (max-width: 720px) {
+            padding: 5px 0;
+        }
 
     & .menu__logo {
         width: 200px;
@@ -13,9 +17,13 @@
 
     & .menu__nav {
         display: flex;
-        gap : 12px;
+        gap: 12px;
         color: v.$primary-color;
-       margin-right: 0.5rem;
+        margin-right: 0.5rem;
 
+        @media (max-width: 720px) {
+            font-size: v.$size14;
+            gap: 8px;
+        }
     }
 }

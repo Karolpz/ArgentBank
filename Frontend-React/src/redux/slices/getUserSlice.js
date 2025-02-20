@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getUserAPI } from "../api";
 
 const initialState = {
+    token: null,
     idUser: null,
     status: 'idle',
     error: null
@@ -9,9 +10,8 @@ const initialState = {
 
 export const getUser = createAsyncThunk(
     'user/getUser',
-    async (_, { rejectWithValue }) => {
+    async (token, { rejectWithValue }) => {
         try {
-            const token = sessionStorage.getItem('token')
             const idUser = await getUserAPI(token);
             if (!token) {
                 return rejectWithValue("Pas de token trouvé")
@@ -26,7 +26,7 @@ export const getUser = createAsyncThunk(
 const getUserSlice = createSlice({
     name: 'getUser',
     initialState,
-    reducers: { },
+    reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(getUser.pending, (state) => {

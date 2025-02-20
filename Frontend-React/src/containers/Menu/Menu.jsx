@@ -1,5 +1,5 @@
-import React from 'react'
-import {NavLink, useNavigate } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
 import logo from '../../assets/img/argentBankLogo.png'
 import NavItem from '../../components/NavItem/NavItem'
 import { faCircleUser, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
@@ -9,13 +9,9 @@ import { logout } from '../../redux/slices/loginSlice'
 const Menu = () => {
 
   const { token } = useSelector(state => state.login)
-  const { status, idUser } = useSelector(state => state.getUser)
+  const { userNameUser } = useSelector(state => state.getUser)
   const navigate = useNavigate()
   const dispatch = useDispatch()
-
-  console.log(idUser);
-  console.log(status);
-  
 
   const handleLogout = () => {
     dispatch(logout())
@@ -38,17 +34,17 @@ const Menu = () => {
         {token ?
           (
             <>
-            <NavItem
-              icon={faCircleUser}
-              text='Tony' //changez en fonction du username
-              onClick={handleUser}
-            />
+              <NavItem
+                icon={faCircleUser}
+                text={userNameUser}
+                onClick={handleUser}
+              />
               <NavItem
                 icon={faRightFromBracket}
                 text='Sign Out'
                 onClick={handleLogout}
               />
-          </>
+            </>
           ) :
           <NavItem
             icon={faCircleUser}

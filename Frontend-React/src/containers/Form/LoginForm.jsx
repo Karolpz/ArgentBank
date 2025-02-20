@@ -16,7 +16,7 @@ const Form = () => {
 
     // console.log(status);
     // console.log(error);
-    // console.log(rememberMe);
+    console.log(rememberMe);
     // console.log(token);
 
 
@@ -28,7 +28,7 @@ const Form = () => {
         setUserData(prevState => ({ ...prevState, [name]: value }))
     }
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault()
         dispatch(loginUser(userData))
     }

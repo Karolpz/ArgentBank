@@ -9,7 +9,8 @@
 
 //CONTAINERS//
 @use './containers/Footer/footer';
-@use './containers/Form/form';
+@use './containers/Form/loginForm';
+@use './containers/Form/usernameForm';
 @use './containers/Hero/hero';
 @use './containers/Menu/menu';
 

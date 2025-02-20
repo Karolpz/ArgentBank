@@ -8,9 +8,10 @@ export const loginUserAPI = async (userData) => {
             userData,
         );
         return response.data.body.token;
-    } catch (error) { console.log('erreur lors de la connexion', error);
+    } catch (error) {
+        console.log('erreur lors de la connexion', error);
         throw error;
-     }
+    }
     ;
 }
 
@@ -25,8 +26,29 @@ export const getUserAPI = async (token) => {
                 }
             });
         return response.data.body;
-    } catch (error) { console.log('erreur lors de la connexion', error);
+    } catch (error) {
+        console.log('erreur lors de la connexion', error);
         throw error;
-     }
+    }
+    ;
+}
+
+//CHANGE USERNAME//
+export const newUsernameAPI = async (newUsername, token) => {
+    try {
+        const response = await axios.put(
+            'http://localhost:3001/api/v1/user/profile',
+            { userName: newUsername },
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+        );
+        return response.data.body.userName;
+    } catch (error) {
+        console.log('erreur lors de la connexion', error);
+        throw error;
+    }
     ;
 }
