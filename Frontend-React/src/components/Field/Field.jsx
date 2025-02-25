@@ -3,24 +3,16 @@ import PropTypes from "prop-types";
 
 export const FIELD_TYPES = {
     TEXT: 1,
-    PASSWORD: 2,
-    CHECKBOX: 3
+    CHECKBOX: 2
 }
 
-const Field = ({ label, textlabel, type, id, value, onChange, name, checked, placeholder, disabled }) => {
+const Field = ({ label, textlabel, type, id, value, onChange, name, checked, placeholder, disabled, inputType }) => {
     switch (type) {
         case FIELD_TYPES.TEXT:
             return (
                 <div className="input-wrapper">
                     <label htmlFor={label}>{textlabel}</label>
-                    <input type='text' id={id} value={value} onChange={onChange} name={name} placeholder={placeholder} disabled={disabled} />
-                </div>
-            );
-        case FIELD_TYPES.PASSWORD:
-            return (
-                <div className="input-wrapper">
-                    <label htmlFor={label}>{textlabel}</label>
-                    <input type='password' id={id} value={value} onChange={onChange} name={name} placeholder={placeholder} disabled={disabled} />
+                    <input type={inputType} id={id} value={value} onChange={onChange} name={name} placeholder={placeholder} disabled={disabled} />
                 </div>
             );
         case FIELD_TYPES.CHECKBOX:

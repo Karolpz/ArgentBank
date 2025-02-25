@@ -6,19 +6,13 @@ import { useNavigate } from 'react-router-dom'
 import { loginUser } from '../../redux/slices/loginSlice'
 import { getUser } from '../../redux/slices/getUserSlice'
 
-const Form = () => {
+const LoginForm = () => {
 
-    const { status, error, token } = useSelector(state => state.login)
+    const { error, token } = useSelector(state => state.login)
     const dispatch = useDispatch()
     const [userData, setUserData] = useState({ email: "", password: "" })
     const [rememberMe, setRememberMe] = useState(false)
     const navigate = useNavigate()
-
-    // console.log(status);
-    // console.log(error);
-    console.log(rememberMe);
-    // console.log(token);
-
 
     const handleChecked = () => {
         setRememberMe(!rememberMe)
@@ -48,6 +42,7 @@ const Form = () => {
         <form onSubmit={handleSubmit} className='form__content'>
             <Field
                 type={FIELD_TYPES.TEXT}
+                inputType='email'
                 label='email'
                 textlabel='Username'
                 id='email'
@@ -56,7 +51,8 @@ const Form = () => {
                 onChange={handleLogin}
             />
             <Field
-                type={FIELD_TYPES.PASSWORD}
+                type={FIELD_TYPES.TEXT}
+                inputType='password'
                 label='password'
                 textlabel='Password'
                 id='password'
@@ -81,4 +77,4 @@ const Form = () => {
     )
 }
 
-export default Form
+export default LoginForm

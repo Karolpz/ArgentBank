@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import logo from '../../assets/img/argentBankLogo.png'
 import NavItem from '../../components/NavItem/NavItem'
 import { faCircleUser, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../../redux/slices/loginSlice'
+
 
 const Menu = () => {
 
@@ -24,7 +25,7 @@ const Menu = () => {
   const handleUser = () => {
     navigate('/user')
   }
-
+//Utiliser NavLink ou useNavigate ?
   return (
     <header className='menu'>
       <NavLink to='/'>

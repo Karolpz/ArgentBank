@@ -3,14 +3,12 @@ import Field, { FIELD_TYPES } from '../../components/Field/Field'
 import Button, { BUTTON_TYPES } from '../../components/Button/Button'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeUsername } from '../../redux/slices/newUsernameSlice'
-import { getUser } from '../../redux/slices/getUserSlice'
 
-const UsernameForm = ({toggleEditName}) => {
+const UsernameForm = ({ toggleEditName }) => {
 
-    // const { newUsername } = useSelector(state => state.username)
     const { token } = useSelector(state => state.login)
     const { userNameUser, firstNameUser, lastNameUser } = useSelector(state => state.getUser)
-    const [editName, setEditName] = useState({userName:''})
+    const [editName, setEditName] = useState({ userName: '' })
     const dispatch = useDispatch()
 
     const handleEditName = (event) => {
@@ -22,13 +20,13 @@ const UsernameForm = ({toggleEditName}) => {
         event.preventDefault()
         dispatch(changeUsername({ newUsername: editName.userName, token }))
         toggleEditName()
-        dispatch(getUser(token))
     }
 
     return (
-        <form  onSubmit={handleSubmit} className='usernameForm__content'>
+        <form onSubmit={handleSubmit} className='usernameForm__content'>
             <Field
                 type={FIELD_TYPES.TEXT}
+                inputType='text'
                 label='User name'
                 textlabel='User name:'
                 id='User name'
@@ -39,6 +37,7 @@ const UsernameForm = ({toggleEditName}) => {
             />
             <Field
                 type={FIELD_TYPES.TEXT}
+                inputType='text'
                 label='First name'
                 textlabel='First name:'
                 id='First name'
@@ -47,6 +46,7 @@ const UsernameForm = ({toggleEditName}) => {
             />
             <Field
                 type={FIELD_TYPES.TEXT}
+                inputType='text'
                 label='Last name'
                 textlabel='Last name:'
                 id='Last name'

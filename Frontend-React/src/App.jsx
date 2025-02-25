@@ -9,13 +9,13 @@ import { getUser } from './redux/slices/getUserSlice';
 const App = () => {
 
   const dispatch = useDispatch()
+  const token = localStorage.getItem("token")
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
     if (token) {
       dispatch(getUser(token));
     }
-  }, [dispatch]);
+  });
 
   return (
     <>
