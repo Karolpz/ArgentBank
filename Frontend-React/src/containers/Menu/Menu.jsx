@@ -25,7 +25,7 @@ const Menu = () => {
   const handleUser = () => {
     navigate('/user')
   }
-//Utiliser NavLink ou useNavigate ?
+
   return (
     <header className='menu'>
       <NavLink to='/'>
