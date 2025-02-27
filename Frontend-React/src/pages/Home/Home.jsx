@@ -3,9 +3,9 @@ import React from 'react'
 import Hero from '../../containers/Hero/Hero'
 import Icon from '../../components/Icon/Icon'
 
-import ChatIcon from '../../assets/img/icon-chat.png'
-import MoneyIcon from '../../assets/img/icon-money.png'
-import SecurityIcon from '../../assets/img/icon-security.png'
+import ChatIcon from '../../assets/img/icon-chat.webp'
+import MoneyIcon from '../../assets/img/icon-money.webp'
+import SecurityIcon from '../../assets/img/icon-security.webp'
 
 const Home = () => {
   return (

@@ -1,19 +1,19 @@
 import React from 'react'
-import BankTree from '../../assets/img/bank-tree.jpeg'
+import BankTree from '../../assets/img/bank-tree.webp'
 
 const Hero = () => {
   return (
-      <div className='hero'>
+    <div className='hero'>
       <section>
-          <img src={BankTree} alt='Image de la bannière représentant un arbre avec de la monnaie' className='hero__img' />
-          <div className="hero__content">
+        <img src={BankTree} alt='Image de la bannière représentant un arbre avec de la monnaie' className='hero__img' />
+        <div className="hero__content">
           <p className='hero__content--title'>No fees.</p>
           <p className='hero__content--title'>No minimum deposit.</p>
           <p className='hero__content--title'>High interest rates.</p>
           <p className='hero__content--subtitle'>Open a savings account with Argent Bank today!</p>
-          </div>
+        </div>
       </section>
-      </div>
+    </div>
   )
 }
- export default Hero
+export default Hero
