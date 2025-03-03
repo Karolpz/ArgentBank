@@ -30,7 +30,13 @@ export default Field
 Field.propTypes = {
     label: PropTypes.string.isRequired,
     textlabel: PropTypes.string.isRequired,
-    type: PropTypes.oneOf(Object.values(FIELD_TYPES)),
+    type: PropTypes.oneOf(Object.values(FIELD_TYPES)).isRequired,
     id: PropTypes.string.isRequired,
-    value: PropTypes.string
-}
+    value: PropTypes.string,
+    onChange: PropTypes.func,
+    name: PropTypes.string,
+    checked: PropTypes.bool,
+    placeholder: PropTypes.string,
+    disabled: PropTypes.bool,
+    inputType: PropTypes.string
+};

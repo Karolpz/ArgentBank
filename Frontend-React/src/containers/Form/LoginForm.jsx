@@ -9,6 +9,7 @@ import { getUser } from '../../redux/slices/getUserSlice'
 const LoginForm = () => {
 
     const { error, token } = useSelector(state => state.login)
+    const { status } = useSelector(state => state.getUser)
     const dispatch = useDispatch()
     const [userData, setUserData] = useState({ email: "", password: "" })
     const [rememberMe, setRememberMe] = useState(false)
@@ -17,6 +18,7 @@ const LoginForm = () => {
     const handleChecked = () => {
         setRememberMe(!rememberMe)
     }
+    
     const handleLogin = (event) => {
         const { name, value } = event.target;
         setUserData(prevState => ({ ...prevState, [name]: value }))
@@ -33,9 +35,14 @@ const LoginForm = () => {
                 localStorage.setItem('token', token)
             }
             dispatch(getUser(token))
+        }
+    }, [token])
+
+    useEffect(() => {
+        if (status === 'succeeded') {
             navigate('/user')
         }
-    },[token])
+    }, [status])
 
 
     return (

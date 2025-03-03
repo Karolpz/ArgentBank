@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
-import logo from '../../assets/img/argentBankLogo.webp'
+import logo from '../../../public/img/argentBankLogo.webp'
 import NavItem from '../../components/NavItem/NavItem'
 import { faCircleUser, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch, useSelector } from 'react-redux'
