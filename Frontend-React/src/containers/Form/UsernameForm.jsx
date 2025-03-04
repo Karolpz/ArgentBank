@@ -25,7 +25,7 @@ const UsernameForm = ({ toggleEditName }) => {
     return (
         <form onSubmit={handleSubmit} className='usernameForm__content'>
             <Field
-                type={FIELD_TYPES.TEXT}
+                type={FIELD_TYPES.DEFAULT}
                 inputType='text'
                 label='User name'
                 textlabel='User name:'
@@ -36,7 +36,7 @@ const UsernameForm = ({ toggleEditName }) => {
                 onChange={handleEditName}
             />
             <Field
-                type={FIELD_TYPES.TEXT}
+                type={FIELD_TYPES.DEFAULT}
                 inputType='text'
                 label='First name'
                 textlabel='First name:'
@@ -45,7 +45,7 @@ const UsernameForm = ({ toggleEditName }) => {
                 placeholder={firstNameUser}
             />
             <Field
-                type={FIELD_TYPES.TEXT}
+                type={FIELD_TYPES.DEFAULT}
                 inputType='text'
                 label='Last name'
                 textlabel='Last name:'

@@ -48,7 +48,7 @@ const LoginForm = () => {
     return (
         <form onSubmit={handleSubmit} className='form__content'>
             <Field
-                type={FIELD_TYPES.TEXT}
+                type={FIELD_TYPES.DEFAULT}
                 inputType='email'
                 label='email'
                 textlabel='Username'
@@ -58,7 +58,7 @@ const LoginForm = () => {
                 onChange={handleLogin}
             />
             <Field
-                type={FIELD_TYPES.TEXT}
+                type={FIELD_TYPES.DEFAULT}
                 inputType='password'
                 label='password'
                 textlabel='Password'

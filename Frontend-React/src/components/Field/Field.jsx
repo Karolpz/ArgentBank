@@ -2,13 +2,13 @@ import React from 'react'
 import PropTypes from "prop-types";
 
 export const FIELD_TYPES = {
-    TEXT: 1,
+    DEFAULT: 1,
     CHECKBOX: 2
 }
 
 const Field = ({ label, textlabel, type, id, value, onChange, name, checked, placeholder, disabled, inputType }) => {
     switch (type) {
-        case FIELD_TYPES.TEXT:
+        case FIELD_TYPES.DEFAULT:
             return (
                 <div className="input-wrapper">
                     <label htmlFor={label}>{textlabel}</label>
