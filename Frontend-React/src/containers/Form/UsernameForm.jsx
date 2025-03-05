@@ -8,17 +8,16 @@ const UsernameForm = ({ toggleEditName }) => {
 
     const { token } = useSelector(state => state.login)
     const { userNameUser, firstNameUser, lastNameUser } = useSelector(state => state.getUser)
-    const [editName, setEditName] = useState({ userName: '' })
+    const [newUsername, setNewUsername] = useState('')
     const dispatch = useDispatch()
 
     const handleEditName = (event) => {
-        const { name, value } = event.target;
-        setEditName(prevState => ({ ...prevState, [name]: value }))
+        setNewUsername(event.target.value)
     }
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        dispatch(changeUsername({ newUsername: editName.userName, token }))
+        dispatch(changeUsername({ newUsername, token }))
         toggleEditName()
     }
 
@@ -32,7 +31,7 @@ const UsernameForm = ({ toggleEditName }) => {
                 id='User name'
                 placeholder={userNameUser}
                 name='userName'
-                value={editName.userName}
+                value={newUsername}
                 onChange={handleEditName}
             />
             <Field

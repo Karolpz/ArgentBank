@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { newUsernameAPI } from "../api";
 
 const initialState = {
-    userName: "",
+    username: "",
     status: 'idle'
 }
 
@@ -35,7 +35,7 @@ const changeUsernameSlice = createSlice({
             })
             .addCase(changeUsername.fulfilled, (state, action) => {
                 state.status = 'succeeded';
-                state.userName = action.payload;
+                state.username = action.payload;
             })
             .addCase(changeUsername.rejected, (state, action) => {
                 state.status = 'failed';
