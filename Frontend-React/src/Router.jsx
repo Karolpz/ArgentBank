@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Home from './pages/Home/Home';
 import SignIn from './pages/Signin/Signin';
 import User from './pages/User/User';
@@ -13,7 +13,7 @@ const Router = () => {
     <Routes>
       <Route path='*' element={<Home />} />
       <Route path='/signin' element={<SignIn />} />
-      <Route path='/user' element={token ? <User /> : <SignIn /> } />
+      <Route path='/user' element={token ? <User /> : <Navigate to='/signin' /> } />
     </Routes>
   )
 }

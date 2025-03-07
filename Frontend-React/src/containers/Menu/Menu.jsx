@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import logo from '../../../public/img/argentBankLogo.webp'
 import NavItem from '../../components/NavItem/NavItem'
 import { faCircleUser, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
@@ -11,19 +11,10 @@ const Menu = () => {
 
   const { token } = useSelector(state => state.login)
   const { userNameUser } = useSelector(state => state.getUser)
-  const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const handleLogout = () => {
     dispatch(logout())
-    navigate('/')
-  }
-
-  const handleLogin = () => {
-    navigate('/signin')
-  }
-  const handleUser = () => {
-    navigate('/user')
   }
 
   return (
@@ -35,11 +26,12 @@ const Menu = () => {
         {token ?
           (
             <>
-              <NavItem
-                icon={faCircleUser}
-                text={userNameUser}
-                onClick={handleUser}
-              />
+              <NavLink to='/user'>
+                <NavItem
+                  icon={faCircleUser}
+                  text={userNameUser}
+                />
+              </NavLink>
               <NavItem
                 icon={faRightFromBracket}
                 text='Sign Out'
@@ -47,11 +39,12 @@ const Menu = () => {
               />
             </>
           ) :
-          <NavItem
-            icon={faCircleUser}
-            text={"Sign in"}
-            onClick={handleLogin}
-          />
+          <NavLink to='/signin'>
+            <NavItem
+              icon={faCircleUser}
+              text={"Sign in"}
+            />
+          </NavLink>
         }
       </nav>
     </header>

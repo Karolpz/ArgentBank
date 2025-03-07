@@ -39,10 +39,10 @@ const LoginForm = () => {
     }, [token])
 
     useEffect(() => {
-        if (status === 'succeeded') {
+        if (status === 'succeeded' && token) {
             navigate('/user')
         }
-    }, [status])
+    }, [status, token])
 
 
     return (
