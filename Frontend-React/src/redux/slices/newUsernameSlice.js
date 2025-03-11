@@ -3,7 +3,8 @@ import { newUsernameAPI } from "../api";
 
 const initialState = {
     username: "",
-    status: 'idle'
+    status: 'idle',
+    error: null
 }
 
 export const changeUsername = createAsyncThunk(

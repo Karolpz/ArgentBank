@@ -3,7 +3,8 @@ import { loginUserAPI } from "../api";
 
 const initialState = {
     token: localStorage.getItem('token') || null,
-    status: 'idle'
+    status: 'idle',
+    error: null
 }
 
 export const loginUser = createAsyncThunk(
@@ -30,7 +31,6 @@ const userSlice = createSlice({
             state.status = 'idle';
             state.error = null;
             localStorage.removeItem('token')
-            sessionStorage.removeItem('token')
         }
     },
     extraReducers: (builder) => {
@@ -41,7 +41,6 @@ const userSlice = createSlice({
             .addCase(loginUser.fulfilled, (state, action) => {
                 state.status = 'succeeded';
                 state.token = action.payload;
-                sessionStorage.setItem('token', action.payload)
             })
             .addCase(loginUser.rejected, (state, action) => {
                 state.status = 'failed';
